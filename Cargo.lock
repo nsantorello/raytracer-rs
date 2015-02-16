@@ -1,0 +1,48 @@
+[root]
+name = "raytracer-rs"
+version = "0.0.1"
+dependencies = [
+ "image 0.2.0-alpha.10 (git+https://github.com/PistonDevelopers/image)",
+]
+
+[[package]]
+name = "image"
+version = "0.2.0-alpha.10"
+source = "git+https://github.com/PistonDevelopers/image#5b589d98e53da920a28dbed8b3ea83452280cdd2"
+dependencies = [
+ "num 0.1.12 (git+https://github.com/rust-lang/num)",
+]
+
+[[package]]
+name = "libc"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "log"
+version = "0.2.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "num"
+version = "0.1.12"
+source = "git+https://github.com/rust-lang/num#e2f0b0d3270554d336c5908bb20a6cbbc0754e61"
+dependencies = [
+ "rand 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.2.13 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rand"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "log 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rustc-serialize"
+version = "0.2.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
