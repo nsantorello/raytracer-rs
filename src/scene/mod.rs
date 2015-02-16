@@ -6,7 +6,7 @@ pub struct Scene<'a> {
 }
 
 pub struct Camera {
-    pub loc: Vec3,
+    pub pos: Vec3,
+    pub look: Vec3,
     pub up: Vec3,
-    pub look: Vec3
 }
