@@ -5,3 +5,6 @@ authors = ["Noah Santorello <nsantorello@gmail.com>"]
 
 [dependencies.image]
 git = "https://github.com/PistonDevelopers/image"
+
+[dependencies.stainless]
+git = "https://github.com/reem/stainless"

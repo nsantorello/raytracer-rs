@@ -6,6 +6,8 @@ pub use self::sphere::Sphere;
 
 use math::Vec3;
 
-pub trait Shape {
+use std::fmt::Debug;
+
+pub trait Shape : Debug {
     fn intersects(&self, ray: &Vec3) -> bool;
 }

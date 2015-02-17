@@ -3,6 +3,7 @@ name = "raytracer-rs"
 version = "0.0.1"
 dependencies = [
  "image 0.2.0-alpha.10 (git+https://github.com/PistonDevelopers/image)",
+ "stainless 0.0.14 (git+https://github.com/reem/stainless)",
 ]
 
 [[package]]
@@ -45,4 +46,9 @@ dependencies = [
 name = "rustc-serialize"
 version = "0.2.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "stainless"
+version = "0.0.14"
+source = "git+https://github.com/reem/stainless#6835b5a845fe04bbfe06d75e84abbcaa6a65e0dc"
 

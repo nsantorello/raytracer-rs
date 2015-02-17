@@ -1,9 +1,10 @@
-use math::Vec3;
+use math::{Point3, Vec3};
 
 use super::Shape;
 
+#[derive(Debug)]
 pub struct Sphere {
-    pub center: Vec3,
+    pub center: Point3,
     pub radius: f64
 }
 

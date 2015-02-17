@@ -1,5 +1,5 @@
-pub struct Vec3 {
-    pub x: f64,
-    pub y: f64, 
-    pub z: f64,
-}
+mod point;
+pub use self::point::Point3;
+
+mod vec;
+pub use self::vec::Vec3;

@@ -1,5 +1,5 @@
 mod math;
-use math::Vec3;
+use math::{Point3, Vec3};
 
 mod shapes;
 use shapes::{Shape, Cube, Sphere};
@@ -7,20 +7,40 @@ use shapes::{Shape, Cube, Sphere};
 mod scene;
 use scene::{Scene, Camera};
 
-fn main() {
-    let ray = Vec3 { x: 1., y: 2., z: 3. };
-    let center = Vec3 { x: 1., y: 2., z: 3. };
-    let centerY = Vec3 { x: 2., y: 2., z: 3. };
+#[derive(Debug)]
+struct Raytracer<'a> {
+    width: i32,
+    height: i32,
+    scene: Scene<'a>
+}
 
-    let x = Sphere { radius: 10., center: center };
-    let y = Sphere { radius: 10., center: centerY };
-    let cube = Cube { min: Vec3 { x: 1., y: 1., z: 1. }, max: Vec3 { x: 1., y: 1., z: 1. } };
-    println!("{} {} {} {}", x.radius, x.center.x, x.center.y, x.center.z);
-    
-    let scene = Scene { objects: vec![ &x, &y, &cube ]};
-    for obj in scene.objects.iter() {
-        println!("{}", obj.intersects(&ray));
+impl<'a> Raytracer<'a> {
+    fn generateImage(&self) {
+        let ray = Vec3 { x: 1., y: 2., z: 3. };
+        for obj in self.scene.objects.iter() {
+            println!("is circle: {}", obj.intersects(&ray));
+        }
     }
+}
+
+fn main() {
+
+    let center = Point3 { x: 1., y: 2., z: 3. };
+    let center3 = Point3 { x: 1., y: 2., z: 3. };
+    let centerY = Point3 { x: 2., y: 2., z: 3. };
+    let center2 = Point3 { x: 2., y: 2., z: 3. };
+    let center4 = Point3 { x: 2., y: 2., z: 3. };
+
+    let x = Sphere { radius: 10., center: center + center4 };
+    let y = Sphere { radius: 10., center: centerY };
+    let cube = Cube { min: Point3 { x: 1., y: 1., z: 1. }, max: Point3 { x: 1., y: 1., z: 1. } };
+    let scene = Scene { objects: vec![ &x, &y, &cube ], camera: Camera { pos: Point3 { x: 1., y: 1., z: 1. }, look: Vec3 { x: 1., y: 1., z: 1. }, up: Vec3 { x: 1., y: 1., z: 1. }} };
+
+    let raytracer = Raytracer { width: 800, height: 600, scene: scene };
+    println!("raytracer image size: ({},{})", raytracer.width, raytracer.height);
+    raytracer.generateImage();
+
+    println!("{:?}", raytracer);
 }
 
 
