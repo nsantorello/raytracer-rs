@@ -1,27 +1,12 @@
 mod math;
 use math::{Point3, Vec3};
 
-mod shapes;
-use shapes::{Shape, Cube, Sphere};
-
 mod scene;
 use scene::{Scene, Camera};
+use scene::shapes::{Shape, Cube, Sphere};
 
-#[derive(Debug)]
-struct Raytracer<'a> {
-    width: i32,
-    height: i32,
-    scene: Scene<'a>
-}
-
-impl<'a> Raytracer<'a> {
-    fn generateImage(&self) {
-        let ray = Vec3 { x: 1., y: 2., z: 3. };
-        for obj in self.scene.objects.iter() {
-            println!("is circle: {}", obj.intersects(&ray));
-        }
-    }
-}
+mod apps;
+use apps::Raytracer;
 
 fn main() {
 
@@ -38,7 +23,7 @@ fn main() {
 
     let raytracer = Raytracer { width: 800, height: 600, scene: scene };
     println!("raytracer image size: ({},{})", raytracer.width, raytracer.height);
-    raytracer.generateImage();
+    raytracer.generate_image();
 
     println!("{:?}", raytracer);
 }

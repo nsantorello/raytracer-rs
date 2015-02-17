@@ -1,15 +1,8 @@
-use math::{Point3, Vec3};
-use shapes::Shape;
+pub mod lights;
+pub mod shapes;
 
-#[derive(Debug)]
-pub struct Scene<'a> {
-    pub objects: Vec<&'a (Shape + 'a)>,
-    pub camera: Camera
-}
+mod scene;
+pub use self::scene::Scene;
 
-#[derive(Debug)]
-pub struct Camera {
-    pub pos: Point3,
-    pub look: Vec3,
-    pub up: Vec3,
-}
+mod camera;
+pub use self::camera::Camera;

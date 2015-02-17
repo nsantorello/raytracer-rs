@@ -5,7 +5,6 @@ mod sphere;
 pub use self::sphere::Sphere;
 
 use math::Vec3;
-
 use std::fmt::Debug;
 
 pub trait Shape : Debug {
